@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <a href="{{ url_for('home') }}" class="button">Home</a>
+            <a href="{{ url_for('chapters') }}" class="button">Chapters</a>
+            <a href="{{ url_for('leaderboard') }}" class="button">Leaderboard</a>
+            <a href="{{ url_for('history') }}" class="button">History</a>
+            <a href="{{ url_for('settings') }}" class="button">Settings</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>
