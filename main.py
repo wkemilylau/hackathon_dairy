@@ -1,19 +1,41 @@
 from flask import Flask, render_template, request
-
-# COPY ME
 from datetime import datetime, timedelta
+
+#########
+import os
 
 app = Flask(__name__)
 
 
-# COPY ME
+
 def get_all_dates_in_month(year, month):
     """Generate all dates for the given month."""
     num_days = (datetime(year, month + 1, 1) - timedelta(days=1)).day if month != 12 else 31
     return [datetime(year, month, day).strftime("%Y-%m-%d") for day in range(1, num_days + 1)]
 
+###############
+def load_score():
+    score = 0
+    if os.path.exists('score.txt'):
+        with open('score.txt', 'r') as file:
+            score = int(file.read().strip())
+    return score
 
-# COPY ME
+###############
+def load_stops():
+    stops = []
+    if os.path.exists('stops.txt'):
+        with open('stops.txt', 'r') as file:
+            for line in file:
+                line = line.strip()
+                if line:
+                    parts = line.split(', ')
+                    stop_name = parts[0].split(': ')[1]
+                    score_required = int(parts[1].split(': ')[1])
+                    stops.append({'name': stop_name, 'score_required': score_required})
+    return stops
+
+
 @app.route('/calendar', methods=['GET', 'POST'])
 def calendar():
     # Set default month and year to the current month and year
@@ -54,7 +76,11 @@ def home():
 
 @app.route('/chapters')
 def chapters():
-    return render_template('chapters.html')
+    stops = load_stops()
+    user_score = load_score()
+    unlocked_stops = [stop for stop in stops if user_score >= stop['score_required']
+                      ]
+    return render_template('chapters.html', stops=stops, user_score=user_score, unlocked_stops=unlocked_stops)
 
 
 @app.route('/leaderboard')
