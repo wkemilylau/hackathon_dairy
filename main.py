@@ -1,19 +1,17 @@
-from flask import Flask, render_template, request
-from datetime import datetime, timedelta
-
-#########
+from flask import Flask, render_template, request, jsonify 
 import os
 
 app = Flask(__name__)
 
+# COPY ME
+from datetime import datetime, timedelta
 
-
+# COPY ME
 def get_all_dates_in_month(year, month):
     """Generate all dates for the given month."""
     num_days = (datetime(year, month + 1, 1) - timedelta(days=1)).day if month != 12 else 31
     return [datetime(year, month, day).strftime("%Y-%m-%d") for day in range(1, num_days + 1)]
 
-###############
 def load_score():
     score = 0
     if os.path.exists('score.txt'):
@@ -21,7 +19,6 @@ def load_score():
             score = int(file.read().strip())
     return score
 
-###############
 def load_stops():
     stops = []
     if os.path.exists('stops.txt'):
@@ -73,7 +70,6 @@ def calendar():
 def home():
     return render_template('home.html')
 
-
 @app.route('/chapters')
 def chapters():
     stops = load_stops()
@@ -88,11 +84,16 @@ def leaderboard():
     return render_template('leaderboard.html')
 
 
-@app.route('/settings')
-def settings():
-    return render_template('settings.html')
+@app.route('/get-images')
+def get_images():
+    return jsonify({
+        'background': '/static/images/sky.jpg',
+        'left_bird': '/static/images/bird1.png',
+        'right_bird': '/static/images/bird2.png',
+        'green': '/static/images/green.png',
+        'red': '/static/images/red.png',
+    })
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
