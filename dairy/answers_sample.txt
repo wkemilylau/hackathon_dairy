@@ -1,4 +1,0 @@
-date: 2023-10-15 prompt: What is the weather like today? answer: It's sunny and warm.
-date: 2023-10-16 prompt: How are you? answer: I'm doing well, thank you!
-date: 2023-10-17 prompt: What's the time? answer: It's 3:00 PM.
-date: 2023-10-31 prompt: Are you hungry? answer: No thankyou.
