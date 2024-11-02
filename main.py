@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify 
 import os
+import random
 
 app = Flask(__name__)
 
@@ -31,6 +32,19 @@ def load_stops():
                     score_required = int(parts[1].split(': ')[1])
                     stops.append({'name': stop_name, 'score_required': score_required})
     return stops
+
+
+def load_prompts():
+    files = ['easyprompts', 'mediumprompts', 'hardprompts']
+    prompts = []
+    for filename in files:
+        prompts.append([])
+        if os.path.exists(filename + '.txt'):
+            with open(filename + '.txt', 'r') as file:
+                for line in file:
+                    line = line.strip()
+                    prompts[-1].append(line)
+    return prompts
 
 
 @app.route('/calendar', methods=['GET', 'POST'])
@@ -68,14 +82,27 @@ def calendar():
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    cards = [
+        {'front': 'Card 1', 'idx': 1},
+        {'front': 'Card 2', 'idx': 2},
+        {'front': 'Card 3', 'idx': 3},
+    ]
+    prompts = [random.choice(level) for level in load_prompts()]
+    return render_template('cards.html', cards=cards, score=load_score(), prompts=prompts)
+
+# Update score method
+@app.route('/update_score', methods=['POST'])
+def update_score():
+    file_path = 'score.txt'
+    new_score = load_score() + request.form.get('points', 0, type=int)
+    with open(file_path, 'w') as file:
+        file.write(str(new_score))
 
 @app.route('/chapters')
 def chapters():
     stops = load_stops()
     user_score = load_score()
-    unlocked_stops = [stop for stop in stops if user_score >= stop['score_required']
-                      ]
+    unlocked_stops = [stop for stop in stops if user_score >= stop['score_required']]
     return render_template('chapters.html', stops=stops, user_score=user_score, unlocked_stops=unlocked_stops)
 
 
