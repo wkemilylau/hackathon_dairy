@@ -16,6 +16,9 @@
                 gap: 0em;
                 margin-top: 3em; /* Add margin to separate the calendar from the selection */
             }
+            .heading{
+                padding: 4pt;
+            }
             .weekday-header {
                 font-weight: bold;
                 text-align: center;
@@ -70,14 +73,14 @@
     <body>
         <h1>Calendar View for {{ selected_month }}/{{ selected_year }}</h1>
         <form method="POST" class="calendar">
-            <label for="month">Select Month:</label>
+            <label for="month" class="heading">Select Month:</label>
             <select id="month" name="month">
                 {% for m in range(1, 13) %}
                     <option value="{{ m }}" {% if m == selected_month %}selected{% endif %}>{{ m }}</option>
                 {% endfor %}
             </select>
 
-            <label for="year">Select Year:</label>
+            <label for="year" class="heading">Select Year:</label>
             <input type="number" id="year" name="year" value="{{ selected_year }}" min="1900" max="2100">
 
             <button type="submit" class = "button">Show Calendar</button>
