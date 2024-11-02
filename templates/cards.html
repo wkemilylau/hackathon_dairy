@@ -122,9 +122,9 @@
             </div>
             <div class="card-face back">
                 <div class="back-content">
-                    <div>{{ prompts[card.idx-1] }}</div>
-                    <textarea placeholder="Your answer here..." autofocus></textarea>
-                    <button class="submit-button" onclick="submitAnswer(event, {{card.idx * 50}})">Submit</button>
+                    <div class="prompt">{{ prompts[card.idx-1] }}</div>
+                    <textarea placeholder="Your answer here..." autofocus class="user-input"></textarea>
+                    <button class="submit-button" onclick="submitAnswer(event, {{card.idx}})">Submit</button>
                 </div>
                 <div class="score-container">
                     <div class="score" id="score">+{{card.idx * 50}}</div>
@@ -151,12 +151,17 @@
             
         }
         
-        function submitAnswer(event, pointsToAdd) {
+        function submitAnswer(event, cardIdx) {
             event.stopPropagation();
 
+
             const formData = new FormData();
-            formData.append('points', pointsToAdd);
-            fetch('/update_score', {
+            const prompt = document.querySelectorAll('.prompt')[cardIdx-1].innerHTML;
+            const userInput = Array.from(document.querySelectorAll('.user-input')).map(textarea => textarea.value.trim()).join('');
+            formData.append('prompt', prompt);
+            formData.append('answer', userInput);
+            formData.append('score', cardIdx * 50);
+            fetch('/update', {
                 method: 'POST',
                 body: formData,
             })
