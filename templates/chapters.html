@@ -1,5 +1,60 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Chapters</h1>
-    <p>This page contains chapters</p>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Roadmap</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 2em;
+            }
+            .roadmap {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 2em 0;
+            }
+            .stop {
+                border: 1px solid #ccc;
+                padding: 1em;
+                border-radius: 5px;
+                width: 150px;
+                text-align: center;
+                margin: 0.5em;
+                position: relative;
+            }
+            .unlocked {
+                background-color: #4caf50; /* Green for unlocked stops */
+                color: white;
+            }
+            .locked {
+                background-color: #f44336; /* Red for locked stops */
+                color: white;
+            }
+            .score {
+                margin-bottom: 1em;
+                font-size: 1.2em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Roadmap</h1>
+        <div class="score">Your Score: {{ user_score }}</div>
+        <div class="roadmap">
+            {% for stop in stops %}
+                <div class="stop {% if stop in unlocked_stops %}unlocked{% else %}locked{% endif %}">
+                    <h3>{{ stop.name }}</h3>
+                    <p>Score Required: {{ stop.score_required }}</p>
+                    {% if stop in unlocked_stops %}
+                        <p>Unlocked!</p>
+                    {% else %}
+                        <p>Locked</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+    </html>
 {% endblock %}
