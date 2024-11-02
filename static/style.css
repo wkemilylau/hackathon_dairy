@@ -17,55 +17,60 @@ body {
 
 /* Sidebar styling */
 .sidebar {
-    width: 200px;
-    background-color: #333;
-    color: white;
+    width: 100px;
+    background-color: #697a44;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     padding: 20px;
-    border-right: 2px solid #444; /* Vertical border on the left */
 }
 
 .sidebar .button {
-    color: white;
-    padding: 10px;
+    color: #e9c088;
+    padding: 20px;
     text-decoration: none;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
+    font-size: 15pt;
 }
 
 .sidebar .button:hover {
-    background-color: #575757;
+    background-color: #394032;
+}
+
+.sidebar .button i {
+    margin-right: 1px; /* Space between icon and text */
 }
 
 /* Main content styling */
 .main-content {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
+    flex-grow: 1; /* Makes main content fill remaining space */
+    padding: 60px;
+    background-color: #c0cdc6; /* Light grey background */
 }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    color:#51392d;
 }
 
 nav {
-    background-color: #333;
+    background-color: #51392d;
     overflow: hidden;
 }
 
 nav a {
-    color: white;
+    color: #51392d;
     padding: 14px 20px;
     text-decoration: none;
     float: left;
 }
 
 nav a:hover {
-    background-color: #575757;
+    background-color: #51392d;
 }
 
 .content {
