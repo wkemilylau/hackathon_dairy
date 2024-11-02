@@ -11,12 +11,14 @@ def get_all_dates_in_month(year, month):
     num_days = (datetime(year, month + 1, 1) - timedelta(days=1)).day if month != 12 else 31
     return [datetime(year, month, day).strftime("%Y-%m-%d") for day in range(1, num_days + 1)]
 
+
 def load_score():
     score = 0
     if os.path.exists('score.txt'):
         with open('score.txt', 'r') as file:
             score = int(file.read().strip())
     return score
+
 
 def load_stops():
     stops = []
@@ -31,6 +33,7 @@ def load_stops():
                     stops.append({'name': stop_name, 'score_required': score_required})
     return stops
 
+
 def load_prompts():
     files = ['easyprompts', 'mediumprompts', 'hardprompts']
     prompts = []
@@ -42,6 +45,7 @@ def load_prompts():
                     line = line.strip()
                     prompts[-1].append(line)
     return prompts
+
 
 @app.route('/calendar', methods=['GET', 'POST'])
 def calendar():
@@ -86,6 +90,7 @@ def home():
     prompts = [random.choice(level) for level in load_prompts()]
     return render_template('cards.html', cards=cards, score=load_score(), prompts=prompts)
 
+
 # Update score method
 @app.route('/update_score', methods=['POST'])
 def update_score():
@@ -99,8 +104,10 @@ def update_score():
 def chapters():
     stops = load_stops()
     user_score = load_score()
-    unlocked_stops = [stop for stop in stops if user_score >= stop['score_required']
-                      ]
+
+    # Generate a list of unlocked stop names
+    unlocked_stops = [stop['name'] for stop in stops if user_score >= stop['score_required']]
+
     return render_template('chapters.html', stops=stops, user_score=user_score, unlocked_stops=unlocked_stops)
 
 
