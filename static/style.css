@@ -7,6 +7,11 @@
 
 body {
     font-family: Arial, sans-serif;
+    padding: 5%;
+}
+
+h1 {
+    padding-bottom:8px;
 }
 
 /* Container for sidebar and main content */
@@ -21,8 +26,11 @@ body {
     background-color: #697a44;
     display: flex;
     flex-wrap: wrap;
+    position: sticky;
+    top: 0;
     flex-direction: column;
     padding: 20px;
+    z-index: 9999;
 }
 
 .sidebar .button {
@@ -75,4 +83,33 @@ nav a:hover {
 
 .content {
     padding: 20px;
+}
+
+
+/* Specific styles for the calendar button */
+.calendar .button {
+    padding: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #e9c088;
+    background-color: #697a44; 
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.calendar .button:hover {
+    background-color: #394032; /* Darker blue on hover */
+}
+
+.calendar .button:active {
+    background-color: #394032; /* Even darker blue when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slightly reduced shadow */
+}
+
+.calendar .button:focus {
+    outline: none; /* Removes default outline */
+    box-shadow: 0 0 0 3px rgba(76, 139, 245, 0.5); /* Custom focus ring */
 }

@@ -8,37 +8,37 @@
         <style>
             body {
                 font-family: Arial, sans-serif;
-                margin: 2em;
+                margin: 0em;
             }
             .calendar {
                 display: grid;
                 grid-template-columns: repeat(7, 1fr);
-                gap: 1em;
-                margin-top: 1em; /* Add margin to separate the calendar from the selection */
+                gap: 0em;
+                margin-top: 3em; /* Add margin to separate the calendar from the selection */
             }
             .weekday-header {
                 font-weight: bold;
                 text-align: center;
                 padding: 0.5em;
-                background-color: #ddd;
+                background-color: #e9c088;
             }
             .date-cell {
                 padding: 1em;
                 text-align: center;
-                border: 1px solid #ccc;
+                border: 1px solid #e5d1b5;
                 cursor: pointer;
-                border-radius: 5px;
+                border-radius: 0px;
             }
             .date-cell.no-record {
-                background-color: #ccc; /* Grey for dates without records */
+                background-color: #e5d1b5; /* Grey for dates without records */
                 cursor: pointer;
             }
             .date-cell.has-record {
-                background-color: #4c8bf5; /* Blue for dates with records */
+                background-color: #9c4c33; /* Blue for dates with records */
                 color: white;
             }
             .date-cell:hover {
-                background-color: #ddd;
+                background-color: #e9c088;
             }
             .record, .no-record-message {
                 display: none;
@@ -69,7 +69,7 @@
     </head>
     <body>
         <h1>Calendar View for {{ selected_month }}/{{ selected_year }}</h1>
-        <form method="POST">
+        <form method="POST" class="calendar">
             <label for="month">Select Month:</label>
             <select id="month" name="month">
                 {% for m in range(1, 13) %}
@@ -80,7 +80,7 @@
             <label for="year">Select Year:</label>
             <input type="number" id="year" name="year" value="{{ selected_year }}" min="1900" max="2100">
 
-            <button type="submit">Show Calendar</button>
+            <button type="submit" class = "button">Show Calendar</button>
         </form>
 
         <div class="calendar">
