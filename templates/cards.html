@@ -100,7 +100,7 @@
         }
         @keyframes slideOut {
             from {transform: translateX(0);}
-            to {transform: translateX(-120%);}
+            to {transform: translateY(-150%);}
         }
     </style>
 </head>
@@ -123,7 +123,7 @@
             <div class="card-face back">
                 <div class="back-content">
                     <div>{{ prompts[card.idx-1] }}</div>
-                    <textarea placeholder="Your answer here..." onfocus="preventFlip(event)"></textarea>
+                    <textarea placeholder="Your answer here..." autofocus></textarea>
                     <button class="submit-button" onclick="submitAnswer(event, {{card.idx * 50}})">Submit</button>
                 </div>
                 <div class="score-container">
@@ -148,15 +148,12 @@
                     c.classList.add('flipped'); // Flip the clicked card
                 }
             });
-        }
-
-        function preventFlip(event) {
-            event.stopPropagation(); // Prevent click from bubbling up
-        }
-
-        function submitAnswer(event, pointsToAdd) {
-            event.stopPropagation(); // Prevent click from bubbling up
             
+        }
+        
+        function submitAnswer(event, pointsToAdd) {
+            event.stopPropagation();
+
             const formData = new FormData();
             formData.append('points', pointsToAdd);
             fetch('/update_score', {
