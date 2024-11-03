@@ -19,7 +19,7 @@
         h1 {
             position: relative;
             text-align: center;
-            margin: 10px;
+            margin-bottom: 30px;
             margin-top: 100px;
             font-weight: bolder;
             font-size: 40px;
@@ -188,7 +188,7 @@
             cards.forEach(c => {
                 if (c === card) {
                     c.style.zIndex = '999';
-                    let xTranslate = (2 - c.getAttribute('idx')) * screen.width * 0.17 - 210;
+                    let xTranslate = (2 - c.getAttribute('idx')) * screen.width * 0.17 - window.innerWidth * 0.15;
                     c.style.transform = 'rotateX(180deg) scale(1.5) translateY(200px) translateX(' + xTranslate + 'px)'
                     c.classList.add('flipped'); // Flip the clicked card
                 }
