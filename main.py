@@ -128,7 +128,7 @@ def chapters():
 
 @app.route('/leaderboard')
 def leaderboard():
-    return render_template('leaderboard.html')
+    return render_template('leaderboard.html', score=load_score())
 
 
 @app.route('/get-images')

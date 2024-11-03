@@ -11,7 +11,7 @@
             flex-direction: column;
             align-items: center;
             font-size: 20px;
-            color: white;
+            color: #51392d;
             font-family: Arial, sans-serif;
         }
 
@@ -31,43 +31,39 @@
             border-collapse: collapse;
             margin: 20px auto;
             text-align: center;
-            width: 88vw;
+            width: 85vw;
             position: relative;
-            z-index: 2;
         }
 
         td {
-            padding: 50px;
-            font-size: 20px;
-        }
-
-        .left-bird, .right-bird {
-            height: 60px;
+            width: 40%;
+            padding: 20px;
+            font-size: 30px;
         }
     </style>
 </head>
 <body>
     <div class="overlay"></div>
-
+    <h1 style="position: relative; color: #51392d">Leaderboard</h1>
     <table>
         <tr>
-            <td class="left-bird"> Alice (85) </td>
+            <td class="left-bird"> Alice <br /> 850 </td>
             <td></td>
         </tr>
         <tr>
             <td></td>
-            <td class="right-bird">David (75)</td>
+            <td class="right-bird">David <br /> 750</td>
         </tr>
         <tr>
-            <td class="left-bird">Eve (70)</td>
+            <td style="background-color: rgba(0,0,0,0.5); color: white;" class="left-bird">YOU <br /> {{score}}</td>
             <td></td>
         </tr>
         <tr>
             <td></td>
-            <td class="right-bird">Hannah (60)</td>
+            <td class="right-bird">Hannah <br /> 50</td>
         </tr>
         <tr>
-            <td class="left-bird">Ian (50)</td>
+            <td class="left-bird">Ian <br /> 0</td>
             <td></td>
         </tr>
     </table>
@@ -82,7 +78,7 @@
                         cell.style.backgroundImage = `url('${data.left_bird}')`;
                         cell.style.backgroundRepeat = 'no-repeat';
                         cell.style.backgroundPosition = 'right';
-                        cell.style.backgroundSize = 'contain';
+                        cell.style.backgroundSize = '100px';
                     });
 
                     const rightBirds = document.querySelectorAll('.right-bird');
@@ -90,7 +86,7 @@
                         cell.style.backgroundImage = `url('${data.right_bird}')`;
                         cell.style.backgroundRepeat = 'no-repeat';
                         cell.style.backgroundPosition = 'left';
-                        cell.style.backgroundSize = 'contain';
+                        cell.style.backgroundSize = '100px';
                     });
                 })
                 .catch(error => {
