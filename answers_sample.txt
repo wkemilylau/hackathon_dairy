@@ -1,5 +1,10 @@
-date: 2023-10-15 prompt: What is the weather like today? answer: It's sunny and warm.
-date: 2023-10-16 prompt: How are you? answer: I'm doing well, thank you!
-date: 2023-10-17 prompt: What's the time? answer: It's 3:00 PM.
-date: 2023-10-31 prompt: Are you hungry? answer: No thankyou.
-date: 2024-11-03 prompt: If you could eliminate any one disease or illness from the world, what would you choose and why? answer: Eliminate chronical illnesses
+date: 2024-10-24 prompt: What life lessons, advice, or habits have you picked up from fiction books? answer: I've learned the value of creativity.
+date: 2024-10-25 prompt: The world would be a lot better if ... answer: The world would be a lot better if people journalled more.
+date: 2024-10-26 prompt: Think about the last time you cried. If those tears could talk, what would they have said? answer: They express stress but it was also a relief so other types of relief may also be helpful e.g. journalling
+date: 2024-10-27 prompt: How much do your current goals reflect your desires vs someone else's? answer: My current goals are mostly my own, but some are influenced by societal expectations.
+date: 2024-10-28 prompt: How do you feel about asking for help? answer: I feel that asking for help is a sign of strength and a way to grow but requires courage.
+date: 2024-10-29 prompt: What happens when you are angry? answer: When I'm angry, I’m a bit impulsive but it would be better if I reflect more before responding - journaling can help with this.
+date: 2024-10-30 prompt: What are some small things that other people have done that really make your day? answer: A simple compliment or a smile can really brighten my day.
+date: 2024-10-31 prompt: What is holding you back from being more productive at the moment? What can you do about that? answer: Too many distractions and thoughts clouding my mind - journaling can help clarify my feelings and thoughts.
+date: 2024-11-01 prompt: What is a positive habit that you would really like to cultivate? Why and how could you get started? answer: I'd like to cultivate a daily journaling habit; I can start by using this website.
+date: 2024-11-02 prompt: What biases do you need to work on? answer: I need to work on my bias towards quick judgements; I can practise active listening.

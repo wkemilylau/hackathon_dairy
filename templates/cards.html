@@ -19,8 +19,8 @@
         h1 {
             position: relative;
             text-align: center;
-            margin: 50px;
-            margin-top: 150px;
+            margin: 10px;
+            margin-top: 100px;
             font-weight: bolder;
             font-size: 40px;
         }
@@ -38,11 +38,11 @@
             align-items: center;
             display: flex; /* Arrange cards in a row */
             perspective: 1000px;
-            gap: 100px; /* Add gap between cards */
+            gap: 10vw; /* Add gap between cards */
         }
         .card {
-            width: 200px;
-            height: 300px;
+            width: 15vw;
+            aspect-ratio: 0.67;
             position: relative;
             transform-style: preserve-3d;
             transition: transform 0.6s, width 0.6s, height 0.6s; /* Add transitions for width and height */
@@ -85,7 +85,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column; /* Stack stars and score vertically */
+            flex-direction: column;
             font-size: 24px;
             background: linear-gradient(to bottom right, #f0fffa, #e0efe8);
             padding: 20px;
@@ -153,16 +153,17 @@
         <span>SCORE</span> <br />
         <span style="font-size: 48px">{{ score }}</span>
     </div>
-    <h1>How are you feeling today?</h1>
+    <h1>
+        How are you feeling today? <br />
+        <span style="font-size: 20px">Choose a card where the number of stars indicates the level of depth of thinking required.</span>
+    </h1>
 
     <div class="card-container">
         {% for card in cards %}
         <div class="card" idx="{{card.idx}}" onclick="flipCard(this)">
             <div class="card-face front">
-                {% for star in range(card.idx) %}<i class="fas fa-star"></i>{% endfor %}
-                <br> <br>
-
-                +{{card.idx * 50}}
+                <div>{% for star in range(card.idx) %}<i class="fas fa-star"></i>{% endfor %}</div> <br />
+                <div>+{{card.idx * 50}}</div>
             </div>
             <div class="card-face back">
                 <div class="back-content">
@@ -187,8 +188,8 @@
             cards.forEach(c => {
                 if (c === card) {
                     c.style.zIndex = '999';
-                    let xTranslate = (2 - c.getAttribute('idx')) * screen.width * 0.14 - 170;
-                    c.style.transform = 'rotateX(180deg) scale(1.5) translateY(100px) translateX(' + xTranslate + 'px)'
+                    let xTranslate = (2 - c.getAttribute('idx')) * screen.width * 0.17 - 210;
+                    c.style.transform = 'rotateX(180deg) scale(1.5) translateY(200px) translateX(' + xTranslate + 'px)'
                     c.classList.add('flipped'); // Flip the clicked card
                 }
             });
