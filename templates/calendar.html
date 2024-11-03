@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Calendar View</title>
+        <title>History</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -18,6 +18,9 @@
             }
             .heading{
                 padding: 4pt;
+                padding-left: 10%;
+                padding-right: 10%;
+                text-align: left;
             }
             .weekday-header {
                 font-weight: bold;
@@ -51,6 +54,9 @@
                 border-radius: 5px;
                 background-color: #f9f9f9;
             }
+            .selected_headings {
+            }
+
         </style>
         <script>
             function showRecord(date) {
@@ -71,17 +77,18 @@
         </script>
     </head>
     <body>
-        <h1>Calendar View for {{ selected_month }}/{{ selected_year }}</h1>
+        <h1>Previous journal entries</h1>
+        <h2>{{ selected_month }}/{{ selected_year }}</h2>
         <form method="POST" class="calendar">
-            <label for="month" class="heading">Select Month:</label>
-            <select id="month" name="month">
+            <label for="month" class="heading">Month:</label>
+            <select id="month" name="month" class="selected_headings">
                 {% for m in range(1, 13) %}
                     <option value="{{ m }}" {% if m == selected_month %}selected{% endif %}>{{ m }}</option>
                 {% endfor %}
             </select>
 
-            <label for="year" class="heading">Select Year:</label>
-            <input type="number" id="year" name="year" value="{{ selected_year }}" min="1900" max="2100">
+            <label for="year" class="heading">Year:</label>
+            <input type="number" id="year" name="year" value="{{ selected_year }}" min="1900" max="2100" class=""selected_headings>
 
             <button type="submit" class = "button">Show Calendar</button>
         </form>

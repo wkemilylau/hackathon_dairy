@@ -22,13 +22,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    padding: 20px;
+    padding: 22px;
     z-index: 9999;
 }
 
 .sidebar .button {
     color: #e9c088;
-    padding: 20px;
+    padding: 19px;
     text-decoration: none;
     margin-bottom: 10px;
     border-radius: 10px;
