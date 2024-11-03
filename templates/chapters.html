@@ -9,7 +9,7 @@
             body {
                 font-family: Arial, sans-serif;
                 margin: 0em;
-                background-color: #f0f0f0; /* Optional: Light background color for contrast */
+                background-color: #f0f0f0;
             }
             .roadmap {
                 display: flex;
@@ -25,26 +25,27 @@
                 text-align: center;
                 margin: 0.5em;
                 position: relative;
-                background-size: cover; /* Ensure background covers the entire div */
-                background-repeat: no-repeat; /* Prevent repeating */
-                color: #e9c088; /* Text color */
+                background-size: cover;
+                background-repeat: no-repeat;
+                color: #e9c088;
             }
             .unlocked {
-                background-image: url('/static/images/green.png'); /* Green background for unlocked stops */
+                background-image: url('/static/images/green.png');
             }
             .locked {
-                background-image: url('/static/images/red.png'); /* Red background for locked stops */
+                background-image: url('/static/images/red.png');
             }
-            .score {
-                margin-bottom: 1em;
+            .content {
+                margin-bottom: -1em;
                 font-size: 1.2em;
                 color: #333; /* Darker color for score text for visibility */
             }
         </style>
     </head>
     <body>
-        <h1>Roadmap</h1>
-        <div class="score">Your Score: {{ user_score }}</div>
+        <h1>Themes</h1>
+        <div class="content">Your Score: {{ user_score }}</div>
+        <div class="content">Answer questions to unlock themes!</div>
         <div class="roadmap">
             {% for stop in stops %}
                 <div class="stop {% if stop.name in unlocked_stops %}unlocked{% else %}locked{% endif %}">
