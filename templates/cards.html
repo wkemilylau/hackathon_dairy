@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Card Flip Example</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             justify-content: center;
@@ -18,6 +20,7 @@
             position: relative;
             text-align: center;
             margin: 50px;
+            margin-top: 150px;
             font-weight: bolder;
             font-size: 40px;
         }
@@ -71,6 +74,22 @@
             background: linear-gradient(to bottom right, #f0fffa, #e0efe8);
             padding: 20px; /* Add some padding for the input */
         }
+        .card-face.front {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Stack stars and score vertically */
+            font-size: 24px;
+            background: linear-gradient(to bottom right, #f0fffa, #e0efe8);
+            padding: 20px;
+        }
         .card-face.back {
             transform: rotateX(180deg); /* Position back face */
             background-image: url("{{ url_for('static', filename='images/background2.jpeg') }}");
@@ -97,7 +116,7 @@
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: #007BFF;
+            background-color: #94a480;
             color: white;
             cursor: pointer;
             font-size: 16px;
@@ -106,7 +125,7 @@
             transition: transform 0.2s;
         }
         .submit-button:hover {
-            background-color: #007BCC;
+            background-color: #697a44;
             transform: scale(1.1); /* Enlarge the button on hover */
         }
         .score-container {
@@ -131,7 +150,7 @@
 <body>
     <div class="overlay"></div>
     <div style="position: absolute; right: 20px; text-align: center;">
-        <span>POINTS</span> <br />
+        <span>SCORE</span> <br />
         <span style="font-size: 48px">{{ score }}</span>
     </div>
     <h1>How are you feeling today?</h1>
@@ -140,13 +159,14 @@
         {% for card in cards %}
         <div class="card" idx="{{card.idx}}" onclick="flipCard(this)">
             <div class="card-face front">
-                {% for star in range(card.idx) %}{{ '' }}{% endfor %}
-                <br />
+                {% for star in range(card.idx) %}<i class="fas fa-star"></i>{% endfor %}
+                <br> <br>
+
                 +{{card.idx * 50}}
             </div>
             <div class="card-face back">
                 <div class="back-content">
-                    <div>{% for star in range(card.idx) %}{{ '' }}{% endfor %}</div>
+                    <div>{% for star in range(card.idx) %}<i class="fas fa-star"></i>{% endfor %}</div>
                     <div class="prompt">{{ prompts[card.idx-1] }}</div>
                     <textarea placeholder="Your answer here..." autofocus class="user-input"></textarea>
                     <button class="submit-button" onclick="submitAnswer(event, {{card.idx}})">Submit</button>
@@ -161,7 +181,6 @@
 
     <script>
         function flipCard(card) {
-            // If the card is already flipped, do nothing
             if (card.classList.contains('flipped')) return;
 
             const cards = document.querySelectorAll('.card');
@@ -173,12 +192,10 @@
                     c.classList.add('flipped'); // Flip the clicked card
                 }
             });
-            
         }
-        
+
         function submitAnswer(event, cardIdx) {
             event.stopPropagation();
-
 
             const formData = new FormData();
             const prompt = document.querySelectorAll('.prompt')[cardIdx-1].innerHTML;
@@ -197,7 +214,6 @@
             // Animations
             document.querySelectorAll('.score').forEach(score => {
                 score.style.display = 'block'; // Show the element
-                // Use a timeout to allow the display change to take effect before the animation
                 setTimeout(() => {
                     score.style.transform = 'translateY(-50px)';
                     score.style.opacity = '0';
@@ -210,8 +226,7 @@
                 }, 500);
             }, 1000)
         }
-
     </script>
 </body>
-
+</html>
 {% endblock %}
