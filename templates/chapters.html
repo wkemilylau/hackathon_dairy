@@ -43,8 +43,12 @@
         </style>
     </head>
     <body>
+        <div style="position: absolute; right: 20px; text-align: center;">
+            <span>SCORE</span> <br />
+            <span style="font-size: 48px">{{ user_score }}</span>
+        </div>
         <h1>Themes</h1>
-        <div class="content">Your Score: {{ user_score }}</div>
+<!--        <div class="content">Your Score: {{ user_score }}</div>-->
         <div class="content">Answer questions to unlock themes!</div>
         <div class="roadmap">
             {% for stop in stops %}

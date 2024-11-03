@@ -1,4 +1,3 @@
 stop: Confidence, score: 600
-stop: Social, score: 400
-stop: Health, score: 200
-stop: Skills, score: 100
+stop: Social, score: 300
+stop: Health, score: 100

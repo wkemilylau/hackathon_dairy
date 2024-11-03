@@ -140,13 +140,13 @@
         {% for card in cards %}
         <div class="card" idx="{{card.idx}}" onclick="flipCard(this)">
             <div class="card-face front">
-                {% for star in range(card.idx) %}{{ '⭐️' }}{% endfor %}
+                {% for star in range(card.idx) %}{{ '' }}{% endfor %}
                 <br />
                 +{{card.idx * 50}}
             </div>
             <div class="card-face back">
                 <div class="back-content">
-                    <div>{% for star in range(card.idx) %}{{ '⭐️' }}{% endfor %}</div>
+                    <div>{% for star in range(card.idx) %}{{ '' }}{% endfor %}</div>
                     <div class="prompt">{{ prompts[card.idx-1] }}</div>
                     <textarea placeholder="Your answer here..." autofocus class="user-input"></textarea>
                     <button class="submit-button" onclick="submitAnswer(event, {{card.idx}})">Submit</button>
