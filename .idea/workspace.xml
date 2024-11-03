@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b04a8392-baee-4336-95fc-bba03273195e" name="Changes" comment="isaac update calendar.html padding">
-      <change beforePath="$PROJECT_DIR$/stops.txt" beforeDir="false" afterPath="$PROJECT_DIR$/stops.txt" afterDir="false" />
+    <list default="true" id="b04a8392-baee-4336-95fc-bba03273195e" name="Changes" comment="isaac update chapter.html to include score">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/answers_sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/answers_sample.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/leaderboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/leaderboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +133,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730633267162</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="isaac update stops.txt">
+      <option name="closed" value="true" />
+      <created>1730634406959</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730634406959</updated>
+    </task>
+    <task id="LOCAL-00007" summary="isaac update chapter.html to include score">
+      <option name="closed" value="true" />
+      <created>1730635129516</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730635129516</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,6 +170,8 @@
     <MESSAGE value="isaac chapters.html" />
     <MESSAGE value="isaac delete extra chapters.html" />
     <MESSAGE value="isaac update calendar.html padding" />
-    <option name="LAST_COMMIT_MESSAGE" value="isaac update calendar.html padding" />
+    <MESSAGE value="isaac update stops.txt" />
+    <MESSAGE value="isaac update chapter.html to include score" />
+    <option name="LAST_COMMIT_MESSAGE" value="isaac update chapter.html to include score" />
   </component>
 </project>
