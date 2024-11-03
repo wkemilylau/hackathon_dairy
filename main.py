@@ -91,14 +91,29 @@ def home():
     return render_template('cards.html', cards=cards, score=load_score(), prompts=prompts)
 
 
-# Update score method
-@app.route('/update_score', methods=['POST'])
+# Append line and update score method
+@app.route('/update', methods=['POST'])
 def update_score():
     file_path = 'score.txt'
-    new_score = load_score() + request.form.get('points', 0, type=int)
+    new_score = load_score() + request.form.get('score', 0, type=int)
     with open(file_path, 'w') as file:
         file.write(str(new_score))
 
+    prompt = request.form.get('prompt', '')
+    answer = request.form.get('answer', '')
+    if prompt and answer:
+        with open('answers_sample.txt', 'a') as f:
+            new_line = 'date: ' + datetime.now().strftime("%Y-%m-%d") + ' prompt: ' + prompt + ' answer: ' + answer
+            f.write(new_line + "\n")
+
+
+# add line to answers sample
+@app.route('/add-line', methods=['POST'])
+def add_line():
+    new = request.json.get('line')
+    if new:
+        with open('answers_sample.txt', 'a') as f:
+            f.write(new + "\n")
 
 @app.route('/chapters')
 def chapters():
