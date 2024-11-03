@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b04a8392-baee-4336-95fc-bba03273195e" name="Changes" comment="isaac chapters.html" />
+    <list default="true" id="b04a8392-baee-4336-95fc-bba03273195e" name="Changes" comment="isaac delete extra chapters.html">
+      <change beforePath="$PROJECT_DIR$/templates/calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/calendar.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730632930535</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="isaac delete extra chapters.html">
+      <option name="closed" value="true" />
+      <created>1730633052444</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730633052444</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -132,6 +142,7 @@
     <MESSAGE value="isaac main.py for chapters" />
     <MESSAGE value="isaac" />
     <MESSAGE value="isaac chapters.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="isaac chapters.html" />
+    <MESSAGE value="isaac delete extra chapters.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="isaac delete extra chapters.html" />
   </component>
 </project>
